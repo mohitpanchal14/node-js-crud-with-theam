@@ -139,6 +139,23 @@ router.post('/forgotpasswordprocess', function (req, res, next) {
 router.get('/login', function (req, res, next) {
     res.render('login', { title: 'login', error: '' });
 });
+router.get('/registration', function (req, res, next) {
+    res.render('registration');
+});
+router.post('/registrationprocess', function (req, res, next) {
+    const admindata = {
+        admin_name: req.body.admin_name,
+        admin_email: req.body.admin_email,
+        admin_pass: req.body.admin_pass
+    }
+    // console.log(admindata);
+    connection.query("insert into tbl_admin set ?", admindata, function (err) {
+        if (err) throw err;
+        console.log("Data INserted");
+        res.redirect('/login');
+    });
+});
+
 router.get('/admin', function (req, res, next) {
     if (req.session.admin_id) {
         res.render('admin', { adminname: req.session.admin_name, error: '' });

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <header>
-        <h1>Login</h1>
+        <h1>Registration</h1>
     </header>
 
     <!-- Bootstrap Core CSS -->
@@ -141,31 +141,25 @@
 <body>
     <main>
         <div class="row">
-            <%if(error) {%>
-                <div class="col-12">
-                    <div class="alert alert-danger" role="alert">
-                        <%=error%>
-                    </div>
-                </div>
-                <%}%>
                     <div class="col-12">
-                        <form id="login_form" class="form_class" action="/login" method="post">
+                        <form id="login_form" class="form_class" action="/registrationprocess" method="post">
                             <div class="form_div">
-                                <label>Login:</label>
+                                <label>Name:</label>
+                                <input class="field_class" name="admin_name" type="text" placeholder="Enter name"
+                                    autofocus required>
+                                <label>Email:</label>
                                 <input class="field_class" name="admin_email" type="email" placeholder="Enter Email"
                                     autofocus required>
                                 <label>Password:</label>
                                 <input id="pass" class="field_class" name="admin_pass" type="password"
                                     placeholder="Enter Password" required>
 
-                                <button class="submit_class" type="submit" form="login_form">Login</button>
+                                <button class="submit_class" type="submit" form="login_form">Registration</button>
                             </div>
                             <div class="info_div">
-                                <p>Already have not an account? <a href="/registration">Registration!</a></p>
+                                <p>Already have  an account? <a href="/login">Login!</a></p>
                             </div>
-                            <div class="info_div">
-                                <p>You Don't Know Password? <a href="/forgotpassword">Forgot Password!</a></p>
-                            </div>
+                            
                         </form>
                     </div>
         </div>
